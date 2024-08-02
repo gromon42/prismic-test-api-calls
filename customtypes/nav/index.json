@@ -1,0 +1,71 @@
+{
+  "id": "nav",
+  "label": "nav",
+  "repeatable": false,
+  "status": true,
+  "format": "custom",
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "login_cta_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Login Cta Label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "login_cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "Login Cta Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "contact_us_cta_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Contact Us Cta Label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "contact_us_link": {
+        "type": "Link",
+        "config": {
+          "label": "Contact Us Link ",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "language_picker": {
+              "type": "SharedSlice"
+            },
+            "banner": {
+              "type": "SharedSlice"
+            },
+            "nav_item": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

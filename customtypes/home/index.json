@@ -1,0 +1,56 @@
+{
+  "id": "home",
+  "label": "home",
+  "repeatable": false,
+  "status": true,
+  "format": "page",
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "perk_columns": {
+              "type": "SharedSlice"
+            },
+            "slider_brands": {
+              "type": "SharedSlice"
+            },
+            "example": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "meta_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

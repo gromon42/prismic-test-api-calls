@@ -1,0 +1,123 @@
+{
+  "id": "footer",
+  "label": "footer",
+  "repeatable": false,
+  "status": true,
+  "format": "custom",
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo_link": {
+        "type": "Link",
+        "config": {
+          "label": "Logo Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "language_picker": {
+              "type": "SharedSlice"
+            },
+            "footer_links": {
+              "type": "SharedSlice"
+            },
+            "socials": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Legal": {
+      "cookies_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Cookies Label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "cookies_link": {
+        "type": "Link",
+        "config": {
+          "label": "Cookies Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "legal_documents_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Legal Documents Label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "legal_documents_link": {
+        "type": "Link",
+        "config": {
+          "label": "Legal Documents Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "privacy_policy_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Privacy Policy Label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "privacy_policy_link": {
+        "type": "Link",
+        "config": {
+          "label": "Privacy Policy Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "security_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Security Label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "security_link": {
+        "type": "Link",
+        "config": {
+          "label": "Security Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "copyright_label": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Copyright Label",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "social",
+  "label": "social",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "link": {
+        "type": "Link",
+        "config": {
+          "label": "Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "type": {
+        "type": "Select",
+        "config": {
+          "label": "Type",
+          "placeholder": "",
+          "options": ["twitter", "linkedin", "facebook", "instagram"],
+          "default_value": "twitter"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}
