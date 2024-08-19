@@ -3,9 +3,10 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  example: dynamic(() => import("./Example")),
   footer_links: dynamic(() => import("./FooterLinks")),
   nav_item: dynamic(() => import("./NavItem")),
+  perk_columns: dynamic(() => import("./PerkColumns")),
+  slider_brands: dynamic(() => import("./SliderBrands")),
   socials: dynamic(() => import("./Socials")),
   sub_nav_item: dynamic(() => import("./SubNavItem")),
 };

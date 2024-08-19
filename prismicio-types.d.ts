@@ -160,10 +160,7 @@ export type FooterDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomeDocumentDataSlicesSlice =
-  | PerkColumnsSlice
-  | SliderBrandsSlice
-  | ExampleSlice;
+type HomeDocumentDataSlicesSlice = PerkColumnsSlice | SliderBrandsSlice;
 
 /**
  * Content for home documents
@@ -435,61 +432,6 @@ export type AllDocumentTypes =
   | NavDocument
   | SocialDocument
   | SubnavDocument;
-
-/**
- * Primary content in *Example → Default → Primary*
- */
-export interface ExampleSliceDefaultPrimary {
-  /**
-   * Title field in *Example → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: example.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *Example → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: example.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-}
-
-/**
- * Default variation for Example Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ExampleSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ExampleSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Example*
- */
-type ExampleSliceVariation = ExampleSliceDefault;
-
-/**
- * Example Shared Slice
- *
- * - **API ID**: `example`
- * - **Description**: Example
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ExampleSlice = prismic.SharedSlice<
-  "example",
-  ExampleSliceVariation
->;
 
 /**
  * Primary content in *FooterLinks → Default → Primary*
@@ -1089,7 +1031,7 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig,
+      options?: prismic.ClientConfig
     ): prismic.Client<AllDocumentTypes>;
   }
 
@@ -1111,10 +1053,6 @@ declare module "@prismicio/client" {
       SubnavDocumentDataSlicesSlice,
       SubnavDocumentDataSlices1Slice,
       AllDocumentTypes,
-      ExampleSlice,
-      ExampleSliceDefaultPrimary,
-      ExampleSliceVariation,
-      ExampleSliceDefault,
       FooterLinksSlice,
       FooterLinksSliceDefaultPrimary,
       FooterLinksSliceDefaultItem,
