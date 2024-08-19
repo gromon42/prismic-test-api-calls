@@ -1,6 +1,7 @@
 import * as prismic from "@prismicio/client";
 import * as prismicNext from "@prismicio/next";
 import config from "../slicemachine.config.json";
+import QuickLRU from "quick-lru";
 
 /**
  * The project's Prismic repository name.
@@ -13,14 +14,31 @@ export const repositoryName =
  *
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
-// TODO: Update the routes array to match your project's route structure.
 const routes: prismic.ClientConfig["routes"] = [
-  // Examples:
   {
     type: "home",
-    path: "/",
+    path: "/:lang?",
   },
 ];
+
+const createCustomFetch = () => {
+  const lru = new QuickLRU<string, Response>({ maxSize: 100 });
+
+  return async (url: RequestInfo, options?: RequestInit): Promise<Response> => {
+    const cacheKey = `${url}:${JSON.stringify(options)}`;
+
+    if (lru.has(cacheKey)) {
+      return lru.get(cacheKey)!.clone(); // Clone to ensure the response is still consumable
+    }
+
+    const response = await fetch(url, options);
+    const clonedResponse = response.clone();
+
+    lru.set(cacheKey, clonedResponse);
+
+    return response;
+  };
+};
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to
@@ -29,12 +47,15 @@ const routes: prismic.ClientConfig["routes"] = [
  * @param config - Configuration for the Prismic client.
  */
 const createClient = (config: prismicNext.CreateClientConfig = {}) => {
+  const customFetch = createCustomFetch();
+
   const client = prismic.createClient(repositoryName, {
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"
         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
         : { next: { revalidate: 5 } },
+    fetch: customFetch,
     ...config,
   });
 
